@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hajjo Modern Farms Nigeria Limited – Growing Quality. Feeding the Nation.</title>
+  <meta name="description" content="Hajjo Modern Farms Nigeria Limited – A registered Nigerian agricultural company in Kano specializing in palm farming, crop production, livestock, and agricultural supply."/>
+  <meta name="keywords" content="Hajjo Modern Farms, agriculture Nigeria, farm Kano, palm plantation, crop production, livestock, agribusiness Nigeria"/>
+  <meta property="og:title" content="Hajjo Modern Farms Nigeria Limited"/>
+  <meta property="og:description" content="Growing Quality. Feeding the Nation."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://hajjomodernfarm.com.ng"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- FIX 1: Added integrity + crossorigin for FA CDN (security best practice) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --green-deep: #1a3d2b;
+      --green-mid: #2d6a4f;
+      --green-bright: #40916c;
+      --green-light: #74c69d;
+      --green-pale: #d8f3dc;
+      --earth-dark: #3d2b1a;
+      --earth-mid: #7a5c3a;
+      --earth-light: #c9a96e;
+      --earth-pale: #f5ebe0;
+      --gold: #e9c46a;
+      --white: #ffffff;
+      --off-white: #fafaf8;
+      --text-dark: #1a1a18;
+      --text-mid: #3d3d38;
+      --text-light: #6b6b60;
+      --shadow: 0 8px 40px rgba(26,61,43,0.12);
+      --shadow-lg: 0 20px 60px rgba(26,61,43,0.18);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--green-pale); }
+    ::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 3px; }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; }
+
+    /* ===== UTILITIES ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--green-bright); margin-bottom: 16px;
+    }
+    .section-tag::before { content: ''; width: 28px; height: 2px; background: var(--green-bright); }
+    .section-title { font-size: clamp(28px,4vw,42px); color: var(--green-deep); margin-bottom: 16px; }
+    .section-desc { font-size: 16px; color: var(--text-light); line-height: 1.7; max-width: 600px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 4px; font-size: 15px; font-weight: 600;
+      cursor: pointer; border: none; transition: all 0.3s ease;
+    }
+    .btn-primary { background: var(--green-bright); color: var(--white); }
+    .btn-primary:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.7); }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: var(--white); }
+
+    /* ===== CSS LOGO ===== */
+    .logo-wrap { display: flex; align-items: center; gap: 12px; }
+    .logo-badge {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(26,61,43,0.35);
+    }
+    .logo-badge::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%) rotate(-30deg);
+      width: 28px; height: 36px;
+      background: radial-gradient(ellipse at 30% 40%, rgba(116,198,157,0.7) 0%, transparent 70%);
+      border-radius: 60% 40% 60% 40%;
+    }
+    .logo-initials {
+      font-family: 'Playfair Display', serif; font-weight: 800; font-size: 16px;
+      color: var(--white); letter-spacing: 0.5px; position: relative; z-index: 1;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); }
+    .logo-sub { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.7); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* DARK variant for non-hero sections */
+    .logo-dark .logo-name { color: var(--green-deep); }
+    .logo-dark .logo-sub { color: var(--text-light); }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.4s ease;
+    }
+    #navbar.scrolled {
+      background: var(--green-deep);
+      padding: 14px 0;
+      box-shadow: 0 4px 30px rgba(26,61,43,0.3);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green-light); }
+    .nav-cta { background: var(--earth-light); color: var(--earth-dark) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--earth-dark) !important; }
+
+    /* FIX 2: hamburger is now a <button>; reset button styles */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+      background: none; border: none;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--green-deep); z-index: 999; flex-direction: column;
+      align-items: center; justify-content: center; gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 22px; font-weight: 600; color: var(--white); }
+    /* FIX 3: mobile-close is now a <button>; reset button styles */
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--white);
+      cursor: pointer; background: none; border: none; line-height: 1;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh; position: relative; display: flex; align-items: center;
+      background: linear-gradient(135deg, #0d2318 0%, #1a3d2b 50%, #2d5016 100%);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* FIX 4: Fixed inconsistent path (was 'hero.jpg', now matches all other image paths) */
+      background: url('./assets/images/hero.jpg') center/cover no-repeat;
+      opacity: 0.35;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(13,35,24,0.92) 0%, rgba(26,61,43,0.7) 60%, rgba(26,61,43,0.3) 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(64,145,108,0.25); border: 1px solid rgba(116,198,157,0.4);
+      padding: 8px 18px; border-radius: 50px; margin-bottom: 28px;
+    }
+    .hero-badge span { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--green-light); }
+    .hero-badge i { color: var(--green-light); font-size: 11px; }
+    .hero-title {
+      font-size: clamp(36px, 6vw, 72px); color: var(--white); margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .hero-tagline {
+      font-size: clamp(18px, 2.5vw, 26px); color: var(--earth-light);
+      font-style: italic; margin-bottom: 20px; font-family: 'Playfair Display', serif;
+    }
+    .hero-desc { font-size: 16px; color: rgba(255,255,255,0.72); line-height: 1.7; margin-bottom: 40px; max-width: 520px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.5); font-size: 12px; letter-spacing: 1px;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll i { font-size: 20px; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    /* ===== ABOUT ===== */
+    #about { padding: 100px 0; background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-images { position: relative; }
+    .about-img-main {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-accent {
+      position: absolute; bottom: -30px; right: -30px;
+      width: 45%; aspect-ratio: 1; object-fit: cover; border-radius: 6px;
+      border: 5px solid var(--white); box-shadow: var(--shadow);
+    }
+    .about-stat {
+      position: absolute; top: -20px; left: -20px;
+      background: var(--green-deep); color: var(--white);
+      padding: 20px 24px; border-radius: 8px; text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .about-stat-num { font-size: 32px; font-weight: 800; font-family: 'Playfair Display',serif; color: var(--gold); }
+    .about-stat-label { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+    .about-info { list-style: none; margin-top: 28px; }
+    .about-info li {
+      display: flex; align-items: flex-start; gap: 12px; padding: 12px 0;
+      border-bottom: 1px solid var(--green-pale); font-size: 15px; color: var(--text-mid);
+    }
+    .about-info li i { color: var(--green-bright); margin-top: 3px; flex-shrink: 0; }
+    .about-reg {
+      margin-top: 28px; padding: 20px 24px;
+      background: var(--earth-pale); border-left: 4px solid var(--earth-light);
+      border-radius: 4px; font-size: 14px; color: var(--text-mid); line-height: 1.6;
+    }
+
+    /* ===== SERVICES ===== */
+    #services { padding: 100px 0; background: var(--off-white); }
+    .services-header { text-align: center; margin-bottom: 60px; }
+    .services-header .section-desc { margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .service-card {
+      background: var(--white); border-radius: 10px; padding: 36px 30px;
+      border: 1px solid rgba(64,145,108,0.1);
+      transition: all 0.35s ease; position: relative; overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--green-mid), var(--green-light));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: var(--green-pale); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; transition: background 0.3s;
+    }
+    .service-card:hover .service-icon { background: var(--green-mid); }
+    .service-icon i { font-size: 26px; color: var(--green-mid); transition: color 0.3s; }
+    .service-card:hover .service-icon i { color: var(--white); }
+    .service-title { font-size: 19px; color: var(--green-deep); margin-bottom: 12px; }
+    .service-desc { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+
+    /* ===== WHY US ===== */
+    #why { padding: 100px 0; background: var(--green-deep); position: relative; overflow: hidden; }
+    #why::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: rgba(64,145,108,0.08);
+    }
+    #why::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: rgba(116,198,157,0.05);
+    }
+    .why-inner { position: relative; z-index: 2; }
+    .why-header { text-align: center; margin-bottom: 60px; }
+    .why-header .section-title { color: var(--white); }
+    .why-header .section-tag { color: var(--green-light); }
+    .why-header .section-tag::before { background: var(--green-light); }
+    .why-header .section-desc { color: rgba(255,255,255,0.65); margin: 0 auto; }
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .why-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px; padding: 32px 28px; transition: all 0.3s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+    .why-num {
+      font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 800;
+      color: rgba(116,198,157,0.2); line-height: 1; margin-bottom: 16px;
+    }
+    .why-title { font-size: 18px; color: var(--white); margin-bottom: 10px; }
+    .why-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* ===== GALLERY ===== */
+    #gallery { padding: 100px 0; background: var(--white); }
+    .gallery-header { margin-bottom: 48px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: 8px; overflow: hidden; position: relative;
+      aspect-ratio: 4/3;
+    }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: unset; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,61,43,0.7) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: flex-end; padding: 20px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-label { color: var(--white); font-size: 14px; font-weight: 600; }
+
+    /* Placeholder gallery items */
+    .gallery-placeholder {
+      background: var(--green-pale); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      /* FIX 5: Added width/height 100% so placeholders correctly fill their parent .gallery-item */
+      width: 100%; height: 100%;
+    }
+    .gallery-placeholder i { font-size: 36px; color: var(--green-bright); }
+    .gallery-placeholder span { font-size: 13px; color: var(--text-light); font-weight: 500; }
+
+    /* ===== COMPANY INFO ===== */
+    #info { padding: 100px 0; background: var(--earth-pale); }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid rgba(122,92,58,0.15); }
+    .info-table td { padding: 14px 0; font-size: 14px; vertical-align: top; }
+    .info-table td:first-child { color: var(--earth-mid); font-weight: 600; width: 40%; padding-right: 16px; }
+    .info-table td:last-child { color: var(--text-dark); }
+    .info-ceo {
+      background: var(--green-deep); color: var(--white); border-radius: 10px; padding: 36px;
+      text-align: center;
+    }
+    .ceo-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+    }
+    .ceo-avatar i { font-size: 36px; color: var(--white); }
+    .ceo-name { font-size: 22px; color: var(--white); margin-bottom: 6px; }
+    .ceo-title { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+    .ceo-divider { width: 40px; height: 2px; background: var(--earth-light); margin: 0 auto 20px; }
+    .ceo-contact a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 8px; transition: color 0.2s;
+    }
+    .ceo-contact a:hover { color: var(--green-light); }
+
+    /* ===== CONTACT ===== */
+    #contact { padding: 100px 0; background: var(--off-white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: start; }
+    .contact-card {
+      background: var(--white); border-radius: 10px; padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    .contact-item { display: flex; gap: 16px; margin-bottom: 28px; }
+    .contact-icon {
+      width: 48px; height: 48px; border-radius: 12px; background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-icon i { color: var(--green-bright); font-size: 18px; }
+    .contact-label { font-size: 12px; font-weight: 600; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .contact-value { font-size: 15px; color: var(--text-dark); line-height: 1.5; }
+    .contact-value a { color: var(--green-mid); }
+    .contact-value a:hover { color: var(--green-deep); }
+
+    /* Form */
+    .form-card { background: var(--white); border-radius: 10px; padding: 40px; box-shadow: var(--shadow); }
+    .form-title { font-size: 24px; color: var(--green-deep); margin-bottom: 8px; }
+    .form-sub { font-size: 14px; color: var(--text-light); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 16px; border: 1.5px solid #e0e0d8;
+      border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 14px;
+      color: var(--text-dark); background: var(--off-white);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--green-bright); box-shadow: 0 0 0 3px rgba(64,145,108,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%; padding: 16px; background: var(--green-bright); color: var(--white);
+      border: none; border-radius: 6px; font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .form-submit:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .form-submit:disabled { opacity: 0.75; cursor: not-allowed; transform: none; }
+
+    /* Map placeholder */
+    .map-placeholder {
+      margin-top: 28px; border-radius: 10px; overflow: hidden;
+      background: var(--green-pale); height: 200px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; border: 2px dashed rgba(64,145,108,0.3);
+    }
+    .map-placeholder i { font-size: 40px; color: var(--green-bright); }
+    .map-placeholder p { font-size: 14px; color: var(--text-light); text-align: center; padding: 0 20px; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--green-deep); color: rgba(255,255,255,0.75); padding: 70px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; padding-bottom: 60px; }
+    .footer-tagline { font-size: 14px; line-height: 1.7; margin-bottom: 20px; color: rgba(255,255,255,0.6); }
+    .footer-socials { display: flex; gap: 10px; }
+    .social-btn {
+      width: 38px; height: 38px; border-radius: 8px;
+      background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .social-btn:hover { background: var(--green-bright); }
+    .social-btn i { font-size: 15px; color: rgba(255,255,255,0.7); }
+    .social-btn:hover i { color: var(--white); }
+
+    .footer-col h4 { font-size: 15px; color: var(--white); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-light); }
+    .footer-contact-item { display: flex; gap: 10px; margin-bottom: 12px; font-size: 14px; }
+    .footer-contact-item i { color: var(--green-light); margin-top: 3px; flex-shrink: 0; font-size: 13px; }
+    .footer-contact-item a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--green-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 0; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.45); }
+    .footer-bottom a { color: var(--green-light); }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .whatsapp-btn {
+      position: fixed; bottom: 90px; right: 24px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.65); }
+    .whatsapp-btn i { font-size: 28px; }
+
+    #backToTop {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--green-mid); color: var(--white); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(45,106,79,0.4);
+      transition: all 0.3s; opacity: 0; transform: translateY(20px);
+    }
+    #backToTop.visible { opacity: 1; transform: translateY(0); }
+    #backToTop:hover { background: var(--green-deep); transform: translateY(-2px) scale(1.05); }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-images { margin-bottom: 60px; }
+      .about-img-accent { bottom: -20px; right: -10px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.tall { grid-row: span 1; aspect-ratio: 4/3; }
+      .info-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <div class="logo-wrap">
+      <div class="logo-badge"><span class="logo-initials">HMF</span></div>
+      <div class="logo-text">
+        <span class="logo-name">Hajjo Modern Farms</span>
+        <span class="logo-sub">Nigeria Limited</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#info">Company Info</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
+    </div>
+    <!-- FIX 6: Changed <div> to <button> for proper semantics and keyboard accessibility -->
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <!-- FIX 7: Changed <span> to <button> for the close control -->
+  <button class="mobile-close" id="mobileClose" aria-label="Close navigation menu">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#why" class="mobile-link">Why Us</a>
+  <a href="#gallery" class="mobile-link">Gallery</a>
+  <a href="#info" class="mobile-link">Company Info</a>
+  <a href="#contact" class="mobile-link">Contact Us</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero" aria-label="Introduction">
+  <div class="hero-bg" role="img" aria-label="Aerial view of Hajjo farm"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <i class="fa fa-seedling" aria-hidden="true"></i>
+      <span>Est. 2019 · Kano, Nigeria</span>
+    </div>
+    <h1 class="hero-title">Hajjo Modern<br/>Farms</h1>
+    <p class="hero-tagline">"Growing Quality. Feeding the Nation."</p>
+    <p class="hero-desc">
+      A registered Nigerian agribusiness delivering world-class farming practices — from palm plantations and crop production to livestock and smart irrigation systems — right from the heart of Kano State.
+    </p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-primary"><i class="fa fa-leaf" aria-hidden="true"></i> Our Services</a>
+      <a href="#contact" class="btn btn-outline"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <i class="fa fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" aria-label="About us">
+  <div class="container about-grid">
+    <div class="about-images reveal">
+      <div class="about-stat" aria-hidden="true">
+        <div class="about-stat-num">2019</div>
+        <div class="about-stat-label">Year Established</div>
+      </div>
+      <img src="./assets/images/hero.jpg" alt="Hajjo Modern Farm aerial view" class="about-img-main"/>
+      <img src="./assets/images/harvest.jpg" alt="Tomato harvest operations" class="about-img-accent"/>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">A Modern Farm<br/>Built for Nigeria</h2>
+      <p class="section-desc">
+        Hajjo Modern Farms Nigeria Limited is a fully registered agricultural company committed to transforming the farming landscape across northern Nigeria. Founded and led by Aisha Muhammad Yusuf, we combine traditional knowledge with modern agri-tech to deliver sustainable, high-yield results.
+      </p>
+      <ul class="about-info">
+        <li><i class="fa fa-map-marker-alt" aria-hidden="true"></i> 285, Kabawa Basiya, Katsina Road, Kano, Nigeria</li>
+        <!-- FIX 8: Escaped & as &amp; in text content -->
+        <li><i class="fa fa-seedling" aria-hidden="true"></i> Specializing in palm farming, crop production, livestock &amp; agri-supply</li>
+        <li><i class="fa fa-shield-alt" aria-hidden="true"></i> Registered under Companies and Allied Matters Act, 2020 – FRN</li>
+        <li><i class="fa fa-tractor" aria-hidden="true"></i> Equipped with modern irrigation &amp; drone-assisted farm monitoring</li>
+        <li><i class="fa fa-leaf" aria-hidden="true"></i> Committed to food security and environmental sustainability</li>
+      </ul>
+      <div class="about-reg">
+        <strong>RC 922234</strong> &nbsp;|&nbsp; <strong>TIN: 262197753346</strong><br/>
+        Registered under the Companies and Allied Matters Act, 2020 – Federal Republic of Nigeria.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" aria-label="Our services">
+  <div class="container">
+    <div class="services-header">
+      <span class="section-tag">Our Services</span>
+      <h2 class="section-title">What We Do</h2>
+      <p class="section-desc">From field to market, we offer integrated agricultural services backed by modern technology and deep local expertise.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa fa-tree" aria-hidden="true"></i></div>
+        <!-- FIX 9: Escaped & as &amp; -->
+        <h3 class="service-title">Palm Plantation &amp; Processing</h3>
+        <p class="service-desc">Large-scale palm oil cultivation, harvesting, and processing using modern techniques to maximize yield and quality standards.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <!-- FIX 10: fa-wheat-awn requires the "fas" prefix in FA6 — added explicit "fas" class -->
+        <div class="service-icon"><i class="fas fa-wheat-awn" aria-hidden="true"></i></div>
+        <h3 class="service-title">Crop Production</h3>
+        <p class="service-desc">Strategic cultivation of tomatoes, peppers, maize, and other high-demand crops with precision agriculture methods.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa fa-horse" aria-hidden="true"></i></div>
+        <h3 class="service-title">Livestock Farming</h3>
+        <p class="service-desc">Ethical, sustainable livestock management including poultry and cattle, producing quality meat and dairy products.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
+        <h3 class="service-title">Agricultural Consultancy</h3>
+        <p class="service-desc">Expert guidance for farmers, cooperatives, and investors on farm setup, best practices, soil management, and profitability.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+        <h3 class="service-title">Farm Produce Distribution</h3>
+        <p class="service-desc">Reliable distribution network connecting our farms to wholesalers, retailers, and processing companies across Nigeria.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-5">
+        <div class="service-icon"><i class="fa fa-droplet" aria-hidden="true"></i></div>
+        <!-- FIX 11: Escaped & as &amp; -->
+        <h3 class="service-title">Irrigation &amp; Modern Farm Systems</h3>
+        <p class="service-desc">Smart drip irrigation, soil sensors, solar-powered pumping, and drone technology for optimized water and resource use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section id="why" aria-label="Why choose us">
+  <div class="container why-inner">
+    <div class="why-header">
+      <span class="section-tag">Why Choose Us</span>
+      <h2 class="section-title">The Hajjo Advantage</h2>
+      <p class="section-desc">We don't just farm — we build sustainable food systems that benefit communities, investors, and the Nigerian economy.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num" aria-hidden="true">01</div>
+        <h3 class="why-title">Modern Farming Techniques</h3>
+        <p class="why-desc">We leverage precision agriculture, drone monitoring, drip irrigation, and data-driven soil management for superior results.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-num" aria-hidden="true">02</div>
+        <h3 class="why-title">Quality Assurance</h3>
+        <p class="why-desc">Every product that leaves our farm meets rigorous quality standards — from cultivation through post-harvest handling and delivery.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-num" aria-hidden="true">03</div>
+        <!-- FIX 12: Escaped & as &amp; -->
+        <h3 class="why-title">Registered &amp; Certified</h3>
+        <p class="why-desc">Fully incorporated under CAMA 2020. Our RC number, TIN, and legal documentation provide full business transparency.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-num" aria-hidden="true">04</div>
+        <h3 class="why-title">Reliable Distribution</h3>
+        <p class="why-desc">A structured supply chain ensures your orders are fulfilled on time, from our Kano farms to markets across Nigeria.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-4">
+        <div class="why-num" aria-hidden="true">05</div>
+        <h3 class="why-title">Experienced Leadership</h3>
+        <p class="why-desc">Led by CEO Aisha Muhammad Yusuf, our team combines decades of agribusiness experience with modern enterprise management.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-5">
+        <div class="why-num" aria-hidden="true">06</div>
+        <!-- FIX 13: Escaped & as &amp; -->
+        <h3 class="why-title">Sustainable &amp; Responsible</h3>
+        <p class="why-desc">We prioritize long-term environmental stewardship, community development, and contribution to national food security goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" aria-label="Farm gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <span class="section-tag">Farm Gallery</span>
+      <h2 class="section-title">A Glimpse of Our Operations</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall reveal">
+        <img src="./assets/images/hero.jpg" alt="Drone view of Hajjo farm with irrigation pond"/>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Drone Farm Overview</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="./assets/images/harvest.jpg" alt="Tomato harvest and loading operations"/>
+        <div class="gallery-overlay" aria-hidden="true">
+          <!-- FIX 14: Escaped & as &amp; -->
+          <span class="gallery-label">Harvest &amp; Loading</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="./assets/images/modern.jpg" alt="Smart irrigation soil sensor"/>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Smart Irrigation Technology</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <div class="gallery-placeholder" role="img" aria-label="Modern Farm Equipment">
+          <i class="fa fa-tractor" aria-hidden="true"></i>
+          <span>Modern Farm Equipment</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Farm Equipment</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-4">
+        <div class="gallery-placeholder" role="img" aria-label="Livestock Operations">
+          <i class="fa fa-horse" aria-hidden="true"></i>
+          <span>Livestock Operations</span>
+        </div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Livestock</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPANY INFO ===== -->
+<section id="info" aria-label="Company information">
+  <div class="container">
+    <span class="section-tag">Company Information</span>
+    <h2 class="section-title" style="margin-bottom:48px;">Our Credentials</h2>
+    <div class="info-grid">
+      <div class="reveal">
+        <!-- FIX 15: Added <tbody> element — required for valid HTML table structure -->
+        <table class="info-table">
+          <tbody>
+            <tr><td>Company Name</td><td>Hajjo Modern Farms Nigeria Limited</td></tr>
+            <tr><td>RC Number</td><td>RC 922234</td></tr>
+            <tr><td>Tax ID (TIN)</td><td>262197753346</td></tr>
+            <tr><td>Registered Under</td><td>Companies and Allied Matters Act, 2020 – Federal Republic of Nigeria</td></tr>
+            <tr><td>Date Established</td><td>2019</td></tr>
+            <tr><td>Official Domain</td><td><a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer" style="color:var(--green-mid)">hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>General Email</td><td><a href="mailto:info@hajjomodernfarm.com.ng" style="color:var(--green-mid)">info@hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>CEO Email</td><td><a href="mailto:aisha@hajjomodernfarm.com.ng" style="color:var(--green-mid)">aisha@hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>Phone</td><td><a href="tel:+2348039102603" style="color:var(--green-mid)">08039102603</a></td></tr>
+            <tr><td>Address</td><td>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="info-ceo">
+          <div class="ceo-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
+          <h3 class="ceo-name">Aisha Muhammad Yusuf</h3>
+          <p class="ceo-title">Chief Executive Officer</p>
+          <div class="ceo-divider" aria-hidden="true"></div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;">
+            Visionary leader driving the future of modern agriculture in northern Nigeria.
+            Aisha combines entrepreneurial excellence with deep agricultural expertise.
+          </p>
+          <div class="ceo-contact">
+            <a href="tel:+2348039102603"><i class="fa fa-phone" aria-hidden="true"></i> 08039102603</a>
+            <a href="mailto:aisha@hajjomodernfarm.com.ng"><i class="fa fa-envelope" aria-hidden="true"></i> aisha@hajjomodernfarm.com.ng</a>
+            <!-- FIX 16: Added rel="noopener noreferrer" to all target="_blank" links (security) -->
+            <a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe" aria-hidden="true"></i> hajjomodernfarm.com.ng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" aria-label="Contact us">
+  <div class="container">
+    <span class="section-tag">Get In Touch</span>
+    <h2 class="section-title" style="margin-bottom:48px;">Contact Us</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-card reveal">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+            <div>
+              <p class="contact-label">Phone</p>
+              <p class="contact-value"><a href="tel:+2348039102603">08039102603</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+            <div>
+              <p class="contact-label">Email</p>
+              <p class="contact-value">
+                <a href="mailto:info@hajjomodernfarm.com.ng">info@hajjomodernfarm.com.ng</a><br/>
+                <a href="mailto:aisha@hajjomodernfarm.com.ng">aisha@hajjomodernfarm.com.ng</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-map-marker-alt" aria-hidden="true"></i></div>
+            <div>
+              <p class="contact-label">Address</p>
+              <p class="contact-value">285, Kabawa Basiya, Katsina Road,<br/>Kano, Nigeria</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+            <div>
+              <p class="contact-label">Website</p>
+              <p class="contact-value"><a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer">hajjomodernfarm.com.ng</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
+            <div>
+              <p class="contact-label">WhatsApp</p>
+              <p class="contact-value"><a href="https://wa.me/2348039102603" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="map-placeholder reveal reveal-delay-2">
+          <i class="fa fa-map-location-dot" aria-hidden="true"></i>
+          <p>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</p>
+        </div>
+      </div>
+
+      <div class="form-card reveal reveal-delay-1">
+        <h3 class="form-title">Send Us a Message</h3>
+        <p class="form-sub">We'll get back to you within 24 hours.</p>
+        <!-- FIX 17: Added name attributes to all inputs (required for form submission);
+                     added autocomplete hints; added novalidate so JS validation runs -->
+        <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="fname" required placeholder="Amina" autocomplete="given-name"/>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="lname" required placeholder="Ibrahim" autocomplete="family-name"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cemail">Email Address *</label>
+            <!-- FIX 18: Renamed id from "email" to "cemail" to avoid conflict with any global `email` variable -->
+            <input type="email" id="cemail" name="email" required placeholder="you@example.com" autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="080XXXXXXXX" autocomplete="tel"/>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+              <option value="">Select a topic...</option>
+              <!-- FIX 19: Added value attributes to all <option> elements -->
+              <option value="Farm Products Inquiry">Farm Products Inquiry</option>
+              <option value="Business Partnership">Business Partnership</option>
+              <option value="Agricultural Consultancy">Agricultural Consultancy</option>
+              <option value="Farm Visit Request">Farm Visit Request</option>
+              <option value="Investment Opportunity">Investment Opportunity</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div style="margin-bottom:20px;">
+          <div class="logo-wrap">
+            <div class="logo-badge"><span class="logo-initials">HMF</span></div>
+            <div class="logo-text">
+              <span class="logo-name">Hajjo Modern Farms</span>
+              <span class="logo-sub">Nigeria Limited</span>
+            </div>
+          </div>
+        </div>
+        <p class="footer-tagline">Growing Quality. Feeding the Nation. — A registered Nigerian agribusiness delivering sustainable farming excellence from Kano to the world.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/2348039102603" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="mailto:info@hajjomodernfarm.com.ng" class="social-btn" aria-label="Send email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-btn" aria-label="X (formerly Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#why">Why Choose Us</a></li>
+          <li><a href="#gallery">Farm Gallery</a></li>
+          <li><a href="#info">Company Info</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Palm Plantation</a></li>
+          <li><a href="#services">Crop Production</a></li>
+          <li><a href="#services">Livestock Farming</a></li>
+          <li><a href="#services">Consultancy</a></li>
+          <li><a href="#services">Distribution</a></li>
+          <li><a href="#services">Irrigation Systems</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
+          <span>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <a href="tel:+2348039102603">08039102603</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <a href="mailto:info@hajjomodernfarm.com.ng">info@hajjomodernfarm.com.ng</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          <a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer">hajjomodernfarm.com.ng</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa fa-id-badge" aria-hidden="true"></i>
+          <span>RC 922234 &nbsp;|&nbsp; TIN: 262197753346</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <!-- FIX 20: Replaced © with &copy; HTML entity for proper encoding -->
+      <p>&copy; 2026 Hajjo Modern Farms Nigeria Limited. All Rights Reserved. &nbsp;|&nbsp; <a href="https://hajjomodernfarm.com.ng">www.hajjomodernfarm.com.ng</a></p>
+      <!-- FIX 21: Replaced · with &middot; HTML entity -->
+      <p>RC 922234 &nbsp;&middot;&nbsp; TIN: 262197753346 &nbsp;&middot;&nbsp; CAC Registered</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<a href="https://wa.me/2348039102603" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
+</a>
+<button id="backToTop" title="Back to top" aria-label="Scroll back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  /* --- Navbar scroll --- */
+  const navbar = document.getElementById('navbar');
+  const backToTopBtn = document.getElementById('backToTop');
+
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* --- Back to top --- */
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* --- Mobile menu ---
+     FIX 22: hamburger/mobileClose are now proper <button> elements;
+              aria-expanded and aria-hidden updated on open/close;
+              Escape key closes menu */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileClose.focus();
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.focus();
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  mobileClose.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* FIX 23: Close mobile menu on Escape key */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  /* --- Scroll reveal --- */
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  /* --- Contact form ---
+     FIX 24: Added proper client-side validation with email regex check;
+              disabled button during submission to prevent double-submit */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const fname   = form.querySelector('#fname').value.trim();
+    const lname   = form.querySelector('#lname').value.trim();
+    const email   = form.querySelector('#cemail').value.trim();
+    const message = form.querySelector('#message').value.trim();
+
+    if (!fname || !lname || !email || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const btn = form.querySelector('.form-submit');
+    btn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i> Message Sent!';
+    btn.style.background = 'var(--green-deep)';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+      form.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
