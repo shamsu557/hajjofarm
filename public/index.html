@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- FIX 1: Added integrity + crossorigin for FA CDN (security best practice) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
   <style>
     /* ===== CSS VARIABLES ===== */
@@ -128,7 +129,11 @@
     .nav-cta { background: var(--earth-light); color: var(--earth-dark) !important; padding: 10px 22px; border-radius: 4px; font-weight: 600 !important; }
     .nav-cta:hover { background: var(--gold) !important; color: var(--earth-dark) !important; }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    /* FIX 2: hamburger is now a <button>; reset button styles */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+      background: none; border: none;
+    }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
 
     .mobile-menu {
@@ -138,7 +143,11 @@
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 22px; font-weight: 600; color: var(--white); }
-    .mobile-close { position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--white); cursor: pointer; }
+    /* FIX 3: mobile-close is now a <button>; reset button styles */
+    .mobile-close {
+      position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--white);
+      cursor: pointer; background: none; border: none; line-height: 1;
+    }
 
     /* ===== HERO ===== */
     #hero {
@@ -148,7 +157,8 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('hero.jpg') center/cover no-repeat;
+      /* FIX 4: Fixed inconsistent path (was 'hero.jpg', now matches all other image paths) */
+      background: url('./assets/images/hero.jpg') center/cover no-repeat;
       opacity: 0.35;
     }
     .hero-overlay {
@@ -304,7 +314,8 @@
     .gallery-placeholder {
       background: var(--green-pale); display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 12px;
-      border-radius: 8px; aspect-ratio: 4/3;
+      /* FIX 5: Added width/height 100% so placeholders correctly fill their parent .gallery-item */
+      width: 100%; height: 100%;
     }
     .gallery-placeholder i { font-size: 36px; color: var(--green-bright); }
     .gallery-placeholder span { font-size: 13px; color: var(--text-light); font-weight: 500; }
@@ -378,6 +389,7 @@
       display: flex; align-items: center; justify-content: center; gap: 8px;
     }
     .form-submit:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .form-submit:disabled { opacity: 0.75; cursor: not-allowed; transform: none; }
 
     /* Map placeholder */
     .map-placeholder {
@@ -392,8 +404,6 @@
     /* ===== FOOTER ===== */
     footer { background: var(--green-deep); color: rgba(255,255,255,0.75); padding: 70px 0 0; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; padding-bottom: 60px; }
-    .footer-about { }
-    .footer-logo-wrap { margin-bottom: 20px; }
     .footer-tagline { font-size: 14px; line-height: 1.7; margin-bottom: 20px; color: rgba(255,255,255,0.6); }
     .footer-socials { display: flex; gap: 10px; }
     .social-btn {
@@ -489,7 +499,7 @@
 <body>
 
 <!-- ===== NAVBAR ===== -->
-<nav id="navbar">
+<nav id="navbar" role="navigation" aria-label="Main navigation">
   <div class="container nav-inner">
     <div class="logo-wrap">
       <div class="logo-badge"><span class="logo-initials">HMF</span></div>
@@ -506,15 +516,19 @@
       <a href="#info">Company Info</a>
       <a href="#contact" class="nav-cta">Contact Us</a>
     </div>
-    <div class="hamburger" id="hamburger" aria-label="Open menu">
+    <!-- FIX 6: Changed <div> to <button> for proper semantics and keyboard accessibility -->
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </div>
 </nav>
 
 <!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" id="mobileClose"><i class="fa fa-times"></i></span>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation" aria-hidden="true">
+  <!-- FIX 7: Changed <span> to <button> for the close control -->
+  <button class="mobile-close" id="mobileClose" aria-label="Close navigation menu">
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </button>
   <a href="#about" class="mobile-link">About</a>
   <a href="#services" class="mobile-link">Services</a>
   <a href="#why" class="mobile-link">Why Us</a>
@@ -524,12 +538,12 @@
 </div>
 
 <!-- ===== HERO ===== -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+<section id="hero" aria-label="Introduction">
+  <div class="hero-bg" role="img" aria-label="Aerial view of Hajjo farm"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container hero-content">
     <div class="hero-badge">
-      <i class="fa fa-seedling"></i>
+      <i class="fa fa-seedling" aria-hidden="true"></i>
       <span>Est. 2019 · Kano, Nigeria</span>
     </div>
     <h1 class="hero-title">Hajjo Modern<br/>Farms</h1>
@@ -538,21 +552,21 @@
       A registered Nigerian agribusiness delivering world-class farming practices — from palm plantations and crop production to livestock and smart irrigation systems — right from the heart of Kano State.
     </p>
     <div class="hero-btns">
-      <a href="#services" class="btn btn-primary"><i class="fa fa-leaf"></i> Our Services</a>
-      <a href="#contact" class="btn btn-outline"><i class="fa fa-envelope"></i> Contact Us</a>
+      <a href="#services" class="btn btn-primary"><i class="fa fa-leaf" aria-hidden="true"></i> Our Services</a>
+      <a href="#contact" class="btn btn-outline"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a>
     </div>
   </div>
-  <div class="hero-scroll">
+  <div class="hero-scroll" aria-hidden="true">
     <span>Scroll</span>
     <i class="fa fa-chevron-down"></i>
   </div>
 </section>
 
 <!-- ===== ABOUT ===== -->
-<section id="about">
+<section id="about" aria-label="About us">
   <div class="container about-grid">
     <div class="about-images reveal">
-      <div class="about-stat">
+      <div class="about-stat" aria-hidden="true">
         <div class="about-stat-num">2019</div>
         <div class="about-stat-label">Year Established</div>
       </div>
@@ -566,11 +580,12 @@
         Hajjo Modern Farms Nigeria Limited is a fully registered agricultural company committed to transforming the farming landscape across northern Nigeria. Founded and led by Aisha Muhammad Yusuf, we combine traditional knowledge with modern agri-tech to deliver sustainable, high-yield results.
       </p>
       <ul class="about-info">
-        <li><i class="fa fa-map-marker-alt"></i> 285, Kabawa Basiya, Katsina Road, Kano, Nigeria</li>
-        <li><i class="fa fa-seedling"></i> Specializing in palm farming, crop production, livestock & agri-supply</li>
-        <li><i class="fa fa-shield-alt"></i> Registered under Companies and Allied Matters Act, 2020 – FRN</li>
-        <li><i class="fa fa-tractor"></i> Equipped with modern irrigation & drone-assisted farm monitoring</li>
-        <li><i class="fa fa-leaf"></i> Committed to food security and environmental sustainability</li>
+        <li><i class="fa fa-map-marker-alt" aria-hidden="true"></i> 285, Kabawa Basiya, Katsina Road, Kano, Nigeria</li>
+        <!-- FIX 8: Escaped & as &amp; in text content -->
+        <li><i class="fa fa-seedling" aria-hidden="true"></i> Specializing in palm farming, crop production, livestock &amp; agri-supply</li>
+        <li><i class="fa fa-shield-alt" aria-hidden="true"></i> Registered under Companies and Allied Matters Act, 2020 – FRN</li>
+        <li><i class="fa fa-tractor" aria-hidden="true"></i> Equipped with modern irrigation &amp; drone-assisted farm monitoring</li>
+        <li><i class="fa fa-leaf" aria-hidden="true"></i> Committed to food security and environmental sustainability</li>
       </ul>
       <div class="about-reg">
         <strong>RC 922234</strong> &nbsp;|&nbsp; <strong>TIN: 262197753346</strong><br/>
@@ -581,7 +596,7 @@
 </section>
 
 <!-- ===== SERVICES ===== -->
-<section id="services">
+<section id="services" aria-label="Our services">
   <div class="container">
     <div class="services-header">
       <span class="section-tag">Our Services</span>
@@ -590,33 +605,36 @@
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <div class="service-icon"><i class="fa fa-tree"></i></div>
-        <h3 class="service-title">Palm Plantation & Processing</h3>
+        <div class="service-icon"><i class="fa fa-tree" aria-hidden="true"></i></div>
+        <!-- FIX 9: Escaped & as &amp; -->
+        <h3 class="service-title">Palm Plantation &amp; Processing</h3>
         <p class="service-desc">Large-scale palm oil cultivation, harvesting, and processing using modern techniques to maximize yield and quality standards.</p>
       </div>
       <div class="service-card reveal reveal-delay-1">
-        <div class="service-icon"><i class="fa fa-wheat-awn"></i></div>
+        <!-- FIX 10: fa-wheat-awn requires the "fas" prefix in FA6 — added explicit "fas" class -->
+        <div class="service-icon"><i class="fas fa-wheat-awn" aria-hidden="true"></i></div>
         <h3 class="service-title">Crop Production</h3>
         <p class="service-desc">Strategic cultivation of tomatoes, peppers, maize, and other high-demand crops with precision agriculture methods.</p>
       </div>
       <div class="service-card reveal reveal-delay-2">
-        <div class="service-icon"><i class="fa fa-horse"></i></div>
+        <div class="service-icon"><i class="fa fa-horse" aria-hidden="true"></i></div>
         <h3 class="service-title">Livestock Farming</h3>
         <p class="service-desc">Ethical, sustainable livestock management including poultry and cattle, producing quality meat and dairy products.</p>
       </div>
       <div class="service-card reveal reveal-delay-3">
-        <div class="service-icon"><i class="fa fa-comments"></i></div>
+        <div class="service-icon"><i class="fa fa-comments" aria-hidden="true"></i></div>
         <h3 class="service-title">Agricultural Consultancy</h3>
         <p class="service-desc">Expert guidance for farmers, cooperatives, and investors on farm setup, best practices, soil management, and profitability.</p>
       </div>
       <div class="service-card reveal reveal-delay-4">
-        <div class="service-icon"><i class="fa fa-truck"></i></div>
+        <div class="service-icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
         <h3 class="service-title">Farm Produce Distribution</h3>
         <p class="service-desc">Reliable distribution network connecting our farms to wholesalers, retailers, and processing companies across Nigeria.</p>
       </div>
       <div class="service-card reveal reveal-delay-5">
-        <div class="service-icon"><i class="fa fa-droplet"></i></div>
-        <h3 class="service-title">Irrigation & Modern Farm Systems</h3>
+        <div class="service-icon"><i class="fa fa-droplet" aria-hidden="true"></i></div>
+        <!-- FIX 11: Escaped & as &amp; -->
+        <h3 class="service-title">Irrigation &amp; Modern Farm Systems</h3>
         <p class="service-desc">Smart drip irrigation, soil sensors, solar-powered pumping, and drone technology for optimized water and resource use.</p>
       </div>
     </div>
@@ -624,7 +642,7 @@
 </section>
 
 <!-- ===== WHY US ===== -->
-<section id="why">
+<section id="why" aria-label="Why choose us">
   <div class="container why-inner">
     <div class="why-header">
       <span class="section-tag">Why Choose Us</span>
@@ -633,33 +651,35 @@
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-num">01</div>
+        <div class="why-num" aria-hidden="true">01</div>
         <h3 class="why-title">Modern Farming Techniques</h3>
         <p class="why-desc">We leverage precision agriculture, drone monitoring, drip irrigation, and data-driven soil management for superior results.</p>
       </div>
       <div class="why-card reveal reveal-delay-1">
-        <div class="why-num">02</div>
+        <div class="why-num" aria-hidden="true">02</div>
         <h3 class="why-title">Quality Assurance</h3>
         <p class="why-desc">Every product that leaves our farm meets rigorous quality standards — from cultivation through post-harvest handling and delivery.</p>
       </div>
       <div class="why-card reveal reveal-delay-2">
-        <div class="why-num">03</div>
-        <h3 class="why-title">Registered & Certified</h3>
+        <div class="why-num" aria-hidden="true">03</div>
+        <!-- FIX 12: Escaped & as &amp; -->
+        <h3 class="why-title">Registered &amp; Certified</h3>
         <p class="why-desc">Fully incorporated under CAMA 2020. Our RC number, TIN, and legal documentation provide full business transparency.</p>
       </div>
       <div class="why-card reveal reveal-delay-3">
-        <div class="why-num">04</div>
+        <div class="why-num" aria-hidden="true">04</div>
         <h3 class="why-title">Reliable Distribution</h3>
         <p class="why-desc">A structured supply chain ensures your orders are fulfilled on time, from our Kano farms to markets across Nigeria.</p>
       </div>
       <div class="why-card reveal reveal-delay-4">
-        <div class="why-num">05</div>
+        <div class="why-num" aria-hidden="true">05</div>
         <h3 class="why-title">Experienced Leadership</h3>
         <p class="why-desc">Led by CEO Aisha Muhammad Yusuf, our team combines decades of agribusiness experience with modern enterprise management.</p>
       </div>
       <div class="why-card reveal reveal-delay-5">
-        <div class="why-num">06</div>
-        <h3 class="why-title">Sustainable & Responsible</h3>
+        <div class="why-num" aria-hidden="true">06</div>
+        <!-- FIX 13: Escaped & as &amp; -->
+        <h3 class="why-title">Sustainable &amp; Responsible</h3>
         <p class="why-desc">We prioritize long-term environmental stewardship, community development, and contribution to national food security goals.</p>
       </div>
     </div>
@@ -667,79 +687,84 @@
 </section>
 
 <!-- ===== GALLERY ===== -->
-<section id="gallery">
+<section id="gallery" aria-label="Farm gallery">
   <div class="container">
     <div class="gallery-header">
       <span class="section-tag">Farm Gallery</span>
       <h2 class="section-title">A Glimpse of Our Operations</h2>
     </div>
     <div class="gallery-grid">
-      <!-- Row 1 -->
       <div class="gallery-item tall reveal">
         <img src="./assets/images/hero.jpg" alt="Drone view of Hajjo farm with irrigation pond"/>
-        <div class="gallery-overlay"><span class="gallery-label">Drone Farm Overview</span></div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Drone Farm Overview</span></div>
       </div>
       <div class="gallery-item reveal reveal-delay-1">
         <img src="./assets/images/harvest.jpg" alt="Tomato harvest and loading operations"/>
-        <div class="gallery-overlay"><span class="gallery-label">Harvest & Loading</span></div>
+        <div class="gallery-overlay" aria-hidden="true">
+          <!-- FIX 14: Escaped & as &amp; -->
+          <span class="gallery-label">Harvest &amp; Loading</span>
+        </div>
       </div>
       <div class="gallery-item reveal reveal-delay-2">
         <img src="./assets/images/modern.jpg" alt="Smart irrigation soil sensor"/>
-        <div class="gallery-overlay"><span class="gallery-label">Smart Irrigation Technology</span></div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Smart Irrigation Technology</span></div>
       </div>
-      <!-- Row 2 -->
       <div class="gallery-item reveal reveal-delay-3">
-        <div class="gallery-placeholder">
-          <i class="fa fa-tractor"></i>
+        <div class="gallery-placeholder" role="img" aria-label="Modern Farm Equipment">
+          <i class="fa fa-tractor" aria-hidden="true"></i>
           <span>Modern Farm Equipment</span>
         </div>
-        <div class="gallery-overlay"><span class="gallery-label">Farm Equipment</span></div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Farm Equipment</span></div>
       </div>
       <div class="gallery-item reveal reveal-delay-4">
-        <div class="gallery-placeholder">
-          <i class="fa fa-horse"></i>
+        <div class="gallery-placeholder" role="img" aria-label="Livestock Operations">
+          <i class="fa fa-horse" aria-hidden="true"></i>
           <span>Livestock Operations</span>
         </div>
-        <div class="gallery-overlay"><span class="gallery-label">Livestock</span></div>
+        <div class="gallery-overlay" aria-hidden="true"><span class="gallery-label">Livestock</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== COMPANY INFO ===== -->
-<section id="info">
+<section id="info" aria-label="Company information">
   <div class="container">
     <span class="section-tag">Company Information</span>
     <h2 class="section-title" style="margin-bottom:48px;">Our Credentials</h2>
     <div class="info-grid">
       <div class="reveal">
+        <!-- FIX 15: Added <tbody> element — required for valid HTML table structure -->
         <table class="info-table">
-          <tr><td>Company Name</td><td>Hajjo Modern Farms Nigeria Limited</td></tr>
-          <tr><td>RC Number</td><td>RC 922234</td></tr>
-          <tr><td>Tax ID (TIN)</td><td>262197753346</td></tr>
-          <tr><td>Registered Under</td><td>Companies and Allied Matters Act, 2020 – Federal Republic of Nigeria</td></tr>
-          <tr><td>Date Established</td><td>2019</td></tr>
-          <tr><td>Official Domain</td><td><a href="https://hajjomodernfarm.com.ng" target="_blank" style="color:var(--green-mid)">hajjomodernfarm.com.ng</a></td></tr>
-          <tr><td>General Email</td><td><a href="mailto:info@hajjomodernfarm.com.ng" style="color:var(--green-mid)">info@hajjomodernfarm.com.ng</a></td></tr>
-          <tr><td>CEO Email</td><td><a href="mailto:aisha@hajjomodernfarm.com.ng" style="color:var(--green-mid)">aisha@hajjomodernfarm.com.ng</a></td></tr>
-          <tr><td>Phone</td><td><a href="tel:+2348039102603" style="color:var(--green-mid)">08039102603</a></td></tr>
-          <tr><td>Address</td><td>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</td></tr>
+          <tbody>
+            <tr><td>Company Name</td><td>Hajjo Modern Farms Nigeria Limited</td></tr>
+            <tr><td>RC Number</td><td>RC 922234</td></tr>
+            <tr><td>Tax ID (TIN)</td><td>262197753346</td></tr>
+            <tr><td>Registered Under</td><td>Companies and Allied Matters Act, 2020 – Federal Republic of Nigeria</td></tr>
+            <tr><td>Date Established</td><td>2019</td></tr>
+            <tr><td>Official Domain</td><td><a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer" style="color:var(--green-mid)">hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>General Email</td><td><a href="mailto:info@hajjomodernfarm.com.ng" style="color:var(--green-mid)">info@hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>CEO Email</td><td><a href="mailto:aisha@hajjomodernfarm.com.ng" style="color:var(--green-mid)">aisha@hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>Phone</td><td><a href="tel:+2348039102603" style="color:var(--green-mid)">08039102603</a></td></tr>
+            <tr><td>Address</td><td>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</td></tr>
+          </tbody>
         </table>
       </div>
       <div class="reveal reveal-delay-2">
         <div class="info-ceo">
-          <div class="ceo-avatar"><i class="fa fa-user"></i></div>
+          <div class="ceo-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
           <h3 class="ceo-name">Aisha Muhammad Yusuf</h3>
           <p class="ceo-title">Chief Executive Officer</p>
-          <div class="ceo-divider"></div>
+          <div class="ceo-divider" aria-hidden="true"></div>
           <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;">
-            Visionary leader driving the future of modern agriculture in northern Nigeria. 
+            Visionary leader driving the future of modern agriculture in northern Nigeria.
             Aisha combines entrepreneurial excellence with deep agricultural expertise.
           </p>
           <div class="ceo-contact">
-            <a href="tel:+2348039102603"><i class="fa fa-phone"></i> 08039102603</a>
-            <a href="mailto:aisha@hajjomodernfarm.com.ng"><i class="fa fa-envelope"></i> aisha@hajjomodernfarm.com.ng</a>
-            <a href="https://hajjomodernfarm.com.ng" target="_blank"><i class="fa fa-globe"></i> hajjomodernfarm.com.ng</a>
+            <a href="tel:+2348039102603"><i class="fa fa-phone" aria-hidden="true"></i> 08039102603</a>
+            <a href="mailto:aisha@hajjomodernfarm.com.ng"><i class="fa fa-envelope" aria-hidden="true"></i> aisha@hajjomodernfarm.com.ng</a>
+            <!-- FIX 16: Added rel="noopener noreferrer" to all target="_blank" links (security) -->
+            <a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe" aria-hidden="true"></i> hajjomodernfarm.com.ng</a>
           </div>
         </div>
       </div>
@@ -748,7 +773,7 @@
 </section>
 
 <!-- ===== CONTACT ===== -->
-<section id="contact">
+<section id="contact" aria-label="Contact us">
   <div class="container">
     <span class="section-tag">Get In Touch</span>
     <h2 class="section-title" style="margin-bottom:48px;">Contact Us</h2>
@@ -756,14 +781,14 @@
       <div>
         <div class="contact-card reveal">
           <div class="contact-item">
-            <div class="contact-icon"><i class="fa fa-phone"></i></div>
+            <div class="contact-icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
             <div>
               <p class="contact-label">Phone</p>
               <p class="contact-value"><a href="tel:+2348039102603">08039102603</a></p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+            <div class="contact-icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
             <div>
               <p class="contact-label">Email</p>
               <p class="contact-value">
@@ -773,29 +798,29 @@
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon"><i class="fa fa-map-marker-alt"></i></div>
+            <div class="contact-icon"><i class="fa fa-map-marker-alt" aria-hidden="true"></i></div>
             <div>
               <p class="contact-label">Address</p>
               <p class="contact-value">285, Kabawa Basiya, Katsina Road,<br/>Kano, Nigeria</p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon"><i class="fa fa-globe"></i></div>
+            <div class="contact-icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
             <div>
               <p class="contact-label">Website</p>
-              <p class="contact-value"><a href="https://hajjomodernfarm.com.ng" target="_blank">hajjomodernfarm.com.ng</a></p>
+              <p class="contact-value"><a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer">hajjomodernfarm.com.ng</a></p>
             </div>
           </div>
           <div class="contact-item">
-            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></div>
             <div>
               <p class="contact-label">WhatsApp</p>
-              <p class="contact-value"><a href="https://wa.me/2348039102603" target="_blank">Chat with us on WhatsApp</a></p>
+              <p class="contact-value"><a href="https://wa.me/2348039102603" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp</a></p>
             </div>
           </div>
         </div>
         <div class="map-placeholder reveal reveal-delay-2">
-          <i class="fa fa-map-location-dot"></i>
+          <i class="fa fa-map-location-dot" aria-hidden="true"></i>
           <p>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</p>
         </div>
       </div>
@@ -803,43 +828,47 @@
       <div class="form-card reveal reveal-delay-1">
         <h3 class="form-title">Send Us a Message</h3>
         <p class="form-sub">We'll get back to you within 24 hours.</p>
-        <form onsubmit="handleSubmit(event)">
+        <!-- FIX 17: Added name attributes to all inputs (required for form submission);
+                     added autocomplete hints; added novalidate so JS validation runs -->
+        <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="fname">First Name *</label>
-              <input type="text" id="fname" required placeholder="Amina"/>
+              <input type="text" id="fname" name="fname" required placeholder="Amina" autocomplete="given-name"/>
             </div>
             <div class="form-group">
               <label for="lname">Last Name *</label>
-              <input type="text" id="lname" required placeholder="Ibrahim"/>
+              <input type="text" id="lname" name="lname" required placeholder="Ibrahim" autocomplete="family-name"/>
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" required placeholder="you@example.com"/>
+            <label for="cemail">Email Address *</label>
+            <!-- FIX 18: Renamed id from "email" to "cemail" to avoid conflict with any global `email` variable -->
+            <input type="email" id="cemail" name="email" required placeholder="you@example.com" autocomplete="email"/>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="080XXXXXXXX"/>
+            <input type="tel" id="phone" name="phone" placeholder="080XXXXXXXX" autocomplete="tel"/>
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
-            <select id="subject">
+            <select id="subject" name="subject">
               <option value="">Select a topic...</option>
-              <option>Farm Products Inquiry</option>
-              <option>Business Partnership</option>
-              <option>Agricultural Consultancy</option>
-              <option>Farm Visit Request</option>
-              <option>Investment Opportunity</option>
-              <option>Other</option>
+              <!-- FIX 19: Added value attributes to all <option> elements -->
+              <option value="Farm Products Inquiry">Farm Products Inquiry</option>
+              <option value="Business Partnership">Business Partnership</option>
+              <option value="Agricultural Consultancy">Agricultural Consultancy</option>
+              <option value="Farm Visit Request">Farm Visit Request</option>
+              <option value="Investment Opportunity">Investment Opportunity</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <div class="form-group">
             <label for="message">Message *</label>
-            <textarea id="message" required placeholder="Tell us how we can help you..."></textarea>
+            <textarea id="message" name="message" required placeholder="Tell us how we can help you..."></textarea>
           </div>
           <button type="submit" class="form-submit">
-            <i class="fa fa-paper-plane"></i> Send Message
+            <i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message
           </button>
         </form>
       </div>
@@ -852,7 +881,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-about">
-        <div class="footer-logo-wrap">
+        <div style="margin-bottom:20px;">
           <div class="logo-wrap">
             <div class="logo-badge"><span class="logo-initials">HMF</span></div>
             <div class="logo-text">
@@ -863,11 +892,11 @@
         </div>
         <p class="footer-tagline">Growing Quality. Feeding the Nation. — A registered Nigerian agribusiness delivering sustainable farming excellence from Kano to the world.</p>
         <div class="footer-socials">
-          <a href="https://wa.me/2348039102603" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:info@hajjomodernfarm.com.ng" class="social-btn"><i class="fa fa-envelope"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-btn"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://wa.me/2348039102603" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="mailto:info@hajjomodernfarm.com.ng" class="social-btn" aria-label="Send email"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" class="social-btn" aria-label="X (formerly Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
         </div>
       </div>
 
@@ -898,87 +927,138 @@
       <div class="footer-col">
         <h4>Contact Info</h4>
         <div class="footer-contact-item">
-          <i class="fa fa-map-marker-alt"></i>
+          <i class="fa fa-map-marker-alt" aria-hidden="true"></i>
           <span>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</span>
         </div>
         <div class="footer-contact-item">
-          <i class="fa fa-phone"></i>
+          <i class="fa fa-phone" aria-hidden="true"></i>
           <a href="tel:+2348039102603">08039102603</a>
         </div>
         <div class="footer-contact-item">
-          <i class="fa fa-envelope"></i>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
           <a href="mailto:info@hajjomodernfarm.com.ng">info@hajjomodernfarm.com.ng</a>
         </div>
         <div class="footer-contact-item">
-          <i class="fa fa-globe"></i>
-          <a href="https://hajjomodernfarm.com.ng" target="_blank">hajjomodernfarm.com.ng</a>
+          <i class="fa fa-globe" aria-hidden="true"></i>
+          <a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer">hajjomodernfarm.com.ng</a>
         </div>
         <div class="footer-contact-item">
-          <i class="fa fa-id-badge"></i>
+          <i class="fa fa-id-badge" aria-hidden="true"></i>
           <span>RC 922234 &nbsp;|&nbsp; TIN: 262197753346</span>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Hajjo Modern Farms Nigeria Limited. All Rights Reserved. &nbsp;|&nbsp; <a href="https://hajjomodernfarm.com.ng">www.hajjomodernfarm.com.ng</a></p>
-      <p>RC 922234 &nbsp;·&nbsp; TIN: 262197753346 &nbsp;·&nbsp; CAC Registered</p>
+      <!-- FIX 20: Replaced © with &copy; HTML entity for proper encoding -->
+      <p>&copy; 2026 Hajjo Modern Farms Nigeria Limited. All Rights Reserved. &nbsp;|&nbsp; <a href="https://hajjomodernfarm.com.ng">www.hajjomodernfarm.com.ng</a></p>
+      <!-- FIX 21: Replaced · with &middot; HTML entity -->
+      <p>RC 922234 &nbsp;&middot;&nbsp; TIN: 262197753346 &nbsp;&middot;&nbsp; CAC Registered</p>
     </div>
   </div>
 </footer>
 
 <!-- ===== FLOATING BUTTONS ===== -->
-<a href="https://wa.me/2348039102603" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
+<a href="https://wa.me/2348039102603" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp" aria-hidden="true"></i>
 </a>
-<button id="backToTop" title="Back to top"><i class="fa fa-chevron-up"></i></button>
+<button id="backToTop" title="Back to top" aria-label="Scroll back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
   /* --- Navbar scroll --- */
   const navbar = document.getElementById('navbar');
+  const backToTopBtn = document.getElementById('backToTop');
+
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
-    document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    backToTopBtn.classList.toggle('visible', window.scrollY > 400);
   });
 
   /* --- Back to top --- */
-  document.getElementById('backToTop').addEventListener('click', () => {
+  backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* --- Mobile menu --- */
+  /* --- Mobile menu ---
+     FIX 22: hamburger/mobileClose are now proper <button> elements;
+              aria-expanded and aria-hidden updated on open/close;
+              Escape key closes menu */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileClose = document.getElementById('mobileClose');
-  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileClose.focus();
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.focus();
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  mobileClose.addEventListener('click', closeMenu);
   document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* FIX 23: Close mobile menu on Escape key */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      closeMenu();
+    }
   });
 
   /* --- Scroll reveal --- */
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach(el => revealObserver.observe(el));
 
-  /* --- Contact form --- */
+  /* --- Contact form ---
+     FIX 24: Added proper client-side validation with email regex check;
+              disabled button during submission to prevent double-submit */
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.innerHTML = '<i class="fa fa-check"></i> Message Sent!';
+    const form = e.target;
+    const fname   = form.querySelector('#fname').value.trim();
+    const lname   = form.querySelector('#lname').value.trim();
+    const email   = form.querySelector('#cemail').value.trim();
+    const message = form.querySelector('#message').value.trim();
+
+    if (!fname || !lname || !email || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const btn = form.querySelector('.form-submit');
+    btn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i> Message Sent!';
     btn.style.background = 'var(--green-deep)';
+    btn.disabled = true;
+
     setTimeout(() => {
-      btn.innerHTML = '<i class="fa fa-paper-plane"></i> Send Message';
+      btn.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message';
       btn.style.background = '';
-      e.target.reset();
+      btn.disabled = false;
+      form.reset();
     }, 3000);
   }
 </script>
