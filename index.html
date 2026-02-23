@@ -332,10 +332,13 @@
       text-align: center;
     }
     .ceo-avatar {
-      width: 80px; height: 80px; border-radius: 50%;
+      width: 100px; height: 100px; border-radius: 50%;
       background: linear-gradient(135deg, var(--green-mid), var(--green-light));
       display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+      overflow: hidden; border: 3px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
+    .ceo-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     .ceo-avatar i { font-size: 36px; color: var(--white); }
     .ceo-name { font-size: 22px; color: var(--white); margin-bottom: 6px; }
     .ceo-title { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
@@ -345,6 +348,30 @@
       color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 8px; transition: color 0.2s;
     }
     .ceo-contact a:hover { color: var(--green-light); }
+
+    /* Stack CEO + Director cards */
+    .leadership-col { display: flex; flex-direction: column; gap: 24px; }
+    .info-director {
+      background: var(--earth-dark); color: var(--white); border-radius: 10px; padding: 36px;
+      text-align: center;
+    }
+    .director-avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--earth-mid), var(--earth-light));
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+      overflow: hidden; border: 3px solid rgba(255,255,255,0.25);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .director-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .director-avatar i { font-size: 36px; color: var(--white); }
+    .director-name { font-size: 22px; color: var(--white); margin-bottom: 6px; }
+    .director-title { font-size: 13px; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+    .director-divider { width: 40px; height: 2px; background: var(--gold); margin: 0 auto 20px; }
+    .director-contact a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      color: rgba(255,255,255,0.75); font-size: 14px; margin-bottom: 8px; transition: color 0.2s;
+    }
+    .director-contact a:hover { color: var(--gold); }
 
     /* ===== CONTACT ===== */
     #contact { padding: 100px 0; background: var(--off-white); }
@@ -743,15 +770,18 @@
             <tr><td>Date Established</td><td>2019</td></tr>
             <tr><td>Official Domain</td><td><a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer" style="color:var(--green-mid)">hajjomodernfarm.com.ng</a></td></tr>
             <tr><td>General Email</td><td><a href="mailto:info@hajjomodernfarm.com.ng" style="color:var(--green-mid)">info@hajjomodernfarm.com.ng</a></td></tr>
-            <tr><td>CEO Email</td><td><a href="mailto:aisha@hajjomodernfarm.com.ng" style="color:var(--green-mid)">aisha@hajjomodernfarm.com.ng</a></td></tr>
+            <tr><td>CEO Email</td><td><a href="mailto:amyusuf@hajjomodernfarm.com.ng" style="color:var(--green-mid)">amyusuf@hajjomodernfarm.com.ng</a></td></tr>
             <tr><td>Phone</td><td><a href="tel:+2348039102603" style="color:var(--green-mid)">08039102603</a></td></tr>
             <tr><td>Address</td><td>285, Kabawa Basiya, Katsina Road, Kano, Nigeria</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="reveal reveal-delay-2">
+      <div class="reveal reveal-delay-2 leadership-col">
+        <!-- CEO Card -->
         <div class="info-ceo">
-          <div class="ceo-avatar"><i class="fa fa-user" aria-hidden="true"></i></div>
+          <div class="ceo-avatar">
+            <img src="./assets/images/ceo.png" alt="Aisha Muhammad Yusuf – Chief Executive Officer"/>
+          </div>
           <h3 class="ceo-name">Aisha Muhammad Yusuf</h3>
           <p class="ceo-title">Chief Executive Officer</p>
           <div class="ceo-divider" aria-hidden="true"></div>
@@ -761,9 +791,24 @@
           </p>
           <div class="ceo-contact">
             <a href="tel:+2348039102603"><i class="fa fa-phone" aria-hidden="true"></i> 08039102603</a>
-            <a href="mailto:aisha@hajjomodernfarm.com.ng"><i class="fa fa-envelope" aria-hidden="true"></i> aisha@hajjomodernfarm.com.ng</a>
-            <!-- FIX 16: Added rel="noopener noreferrer" to all target="_blank" links (security) -->
+            <a href="mailto:amyusuf@hajjomodernfarm.com.ng"><i class="fa fa-envelope" aria-hidden="true"></i> amyusuf@hajjomodernfarm.com.ng</a>
             <a href="https://hajjomodernfarm.com.ng" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe" aria-hidden="true"></i> hajjomodernfarm.com.ng</a>
+          </div>
+        </div>
+        <!-- Director Card -->
+        <div class="info-director">
+          <div class="director-avatar">
+            <img src="./assets/images/director.jpg" alt="Abdullahi A Bature – Director"/>
+          </div>
+          <h3 class="director-name">Abdullahi A Bature</h3>
+          <p class="director-title">Director</p>
+          <div class="director-divider" aria-hidden="true"></div>
+          <p style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;">
+            Providing strategic direction and governance to ensure Hajjo Modern Farms achieves its vision of sustainable agricultural excellence.
+          </p>
+          <div class="director-contact">
+            <a href="tel:+2348039102603"><i class="fa fa-phone" aria-hidden="true"></i> 08039102603</a>
+            <a href="mailto:aabature@hajjomodernfarm.com.ng"><i class="fa fa-envelope" aria-hidden="true"></i> aabature@hajjomodernfarm.com.ng</a>
           </div>
         </div>
       </div>
@@ -792,7 +837,7 @@
               <p class="contact-label">Email</p>
               <p class="contact-value">
                 <a href="mailto:info@hajjomodernfarm.com.ng">info@hajjomodernfarm.com.ng</a><br/>
-                <a href="mailto:aisha@hajjomodernfarm.com.ng">aisha@hajjomodernfarm.com.ng</a>
+                <a href="mailto:amyusuf@hajjomodernfarm.com.ng">amyusuf@hajjomodernfarm.com.ng</a>
               </p>
             </div>
           </div>
@@ -964,7 +1009,7 @@
 <button id="backToTop" title="Back to top" aria-label="Scroll back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
 
 <!-- ===== JAVASCRIPT ===== -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* --- Navbar scroll --- */
   const navbar = document.getElementById('navbar');
   const backToTopBtn = document.getElementById('backToTop');
@@ -1032,33 +1077,36 @@
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const fname   = form.querySelector('#fname').value.trim();
-    const lname   = form.querySelector('#lname').value.trim();
-    const email   = form.querySelector('#cemail').value.trim();
+    const btn = form.querySelector('.form-submit');
+    const name = form.querySelector('#name').value.trim();
+    const email = form.querySelector('#email').value.trim();
     const message = form.querySelector('#message').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!fname || !lname || !email || !message) {
+    if (!name || !email || !message) {
       alert('Please fill in all required fields.');
       return;
     }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert('Please enter a valid email address.');
       return;
     }
 
-    const btn = form.querySelector('.form-submit');
-    btn.innerHTML = '<i class="fa fa-check" aria-hidden="true"></i> Message Sent!';
-    btn.style.background = 'var(--green-deep)';
     btn.disabled = true;
+    btn.innerHTML = '<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
 
+    /* Simulate form submission — replace with actual endpoint as needed */
     setTimeout(() => {
-      btn.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message';
-      btn.style.background = '';
       btn.disabled = false;
+      btn.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i> Send Message';
+      alert('Thank you! Your message has been sent. We will get back to you shortly.');
       form.reset();
-    }, 3000);
+    }, 1800);
+  }
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleSubmit);
   }
 </script>
 </body>
